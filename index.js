@@ -42,6 +42,7 @@ const createTableArr = () => {
 io.on("connection", (socket) => {
 
     socket.on("joinRoom", (data) => {
+        console.log('joinRoom', data)
         if (roomState.filter((room) => (room.roomId === data.room)).length === 0) {
             roomState.push({
                 roomId: data.room,
@@ -121,6 +122,7 @@ io.on("connection", (socket) => {
     })
 
     socket.on("clickDropButton", (data) => {
+        console.log('clickDropButton', data)
         roomState = roomState.map((room) => {
             if (room.roomId === data.room) {
                 // update button action
@@ -173,6 +175,7 @@ io.on("connection", (socket) => {
         )
     })
     socket.on("reStartGame", (data) => {
+        console.log('reStartGame', data)
         roomState = roomState.map((room) => {
             if (room.roomId === data.room) {
                 return {
@@ -201,7 +204,7 @@ io.on("connection", (socket) => {
         )
     })
 
-    
+
 })
 
 server.listen(3001, () => {
