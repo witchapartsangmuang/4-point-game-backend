@@ -7,7 +7,7 @@ app.use(cors())
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://4pointgame-web.netlify.app:3000",
+        origin: "https://4pointgame-web.netlify.app/",
         methods: ["GET", "POST"],
     },
 })
